@@ -1,0 +1,67 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf796c0283b644f558c738194539312a, type: 3}
+  m_Name: Defeated A
+  m_EditorClassIdentifier: Assembly-CSharp::SystemEvent
+  eventID: faction_a_raiders_defeated
+  eventName: Faction A Raiders Defeated
+  maxTriggers: 1
+  requiresSequences:
+  - village_assault
+  startsSequences: []
+  endsSequences:
+  - village_assault
+  conditions:
+  - scope: group.factARaiders
+    name: Morale
+    comparisonOperator: 0
+    valueType: 0
+    intValue: 50
+    stateValue: 
+  - scope: actor.factARaiders
+    name: encounterStatus
+    comparisonOperator: 2
+    valueType: 1
+    intValue: 0
+    stateValue: combat
+  mutates:
+  - scope: location.villageA
+    name: Prosperity
+    mutationType: 0
+    delta: 5
+    state: 
+  - scope: group.factionA
+    name: Influence
+    mutationType: 0
+    delta: -10
+    state: 
+  - scope: group.factionB
+    name: Influence
+    mutationType: 0
+    delta: 10
+    state: 
+  - scope: player
+    name: Reputation
+    mutationType: 0
+    delta: 15
+    state: 
+  - scope: actor.factARaiders
+    name: encounterStatus
+    mutationType: 1
+    delta: 0
+    state: defeat
+  - scope: location.villageA
+    name: Prosperity
+    mutationType: 0
+    delta: -10
+    state: 
+  tags: []

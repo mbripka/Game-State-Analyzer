@@ -1,0 +1,49 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf796c0283b644f558c738194539312a, type: 3}
+  m_Name: Ending
+  m_EditorClassIdentifier: Assembly-CSharp::SystemEvent
+  eventID: ending
+  eventName: Roll the Credits
+  maxTriggers: 1
+  requiresSequences:
+  - stolen_relic
+  startsSequences: []
+  endsSequences:
+  - stolen_relic
+  conditions:
+  - scope: target.worldCNpcs
+    name: Visibility
+    comparisonOperator: 2
+    valueType: 1
+    intValue: 0
+    stateValue: revealed
+  - scope: target.worldDNpcs
+    name: Visibility
+    comparisonOperator: 2
+    valueType: 1
+    intValue: 0
+    stateValue: revealed
+  - scope: target.worldENpcs
+    name: Visibility
+    comparisonOperator: 2
+    valueType: 1
+    intValue: 0
+    stateValue: revealed
+  - scope: target.worldFNpcs
+    name: Visibility
+    comparisonOperator: 2
+    valueType: 1
+    intValue: 0
+    stateValue: revealed
+  mutates: []
+  tags: []

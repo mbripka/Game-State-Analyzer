@@ -1,0 +1,9 @@
+{
+    "name": "YourCompany.EventExporter.Editor",
+    "references": [
+        "YourCompany.EventExporter.Runtime"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ]
+}

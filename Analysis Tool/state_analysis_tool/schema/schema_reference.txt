@@ -1,0 +1,160 @@
+State Analysis Tool (v0.1)
+A minimal analysis tool for branching event systems in games.
+The tool analyzes world-state transitions to detect:
+
+unreachable world states
+
+duplicate states produced by different event paths
+
+missing branching coverage
+
+It is designed for event-driven narrative systems, strategy games, and simulation games where complex conditional logic can produce unintended state combinations.
+
+How It Works
+
+The system evaluates event logic using a normalized world-state representation.
+
+A world state contains only variables that influence branching outcomes. Non-branching variables are ignored during state comparison.
+
+Two world states are equivalent when all branching variables match after normalization.
+
+This allows the tool to:
+
+collapse duplicate states
+
+detect unreachable event paths
+
+highlight missing state coverage
+
+Required Entity ID Sets
+playerIDs: list<string> = []
+npcIDs: list<string> = []
+groupIDs: list<string> = []
+itemIDs: list<string> = []
+gatewayIDs: list<string> = []
+locationIDs: list<string> = []
+actorIDs: list<string> = []       # subset of EntityIDs that can act
+targetIDs: list<string> = []      # subset of EntityIDs that can be targeted
+
+# Complete set of entities
+EntityIDs: list<string> = playerIDs + npcIDs + groupIDs + ["World"]
+worldID: string = "World"   # singleton ID for environmental ownership
+
+# Complete set of entities
+EntityIDs = playerIDs + npcIDs + groupIDs + ["World"]
+worldID = "World"   # singleton ID for environmental ownership
+World State Model
+Core Scalars
+knowledge: int [0-100]
+health: int [0-100]
+morale: int [0-100]
+prosperity: int [0-100]
+reputation: int [0-100]
+Player Variable Format
+Use either:
+player.<attribute>
+or
+player.{playerID}.<attribute>
+but not both in the same dataset.
+Actors
+actor.{actorID}.encounterstatus: {idling, seeking, combat}
+actor.{actorID}.outcome: {success, failure, stalemate}
+Targets
+target.{targetID}.visibility: {hidden, revealed}
+target.{targetID}.eyespy: {not_found, found}
+Factions / Groups
+group.{groupID}.type: {origin_world, culture, faction, temporary}
+group.{groupID}.health: int [0-100]          # optional
+group.{groupID}.morale: int [0-100]          # optional
+group.{groupID}.influence: int [0-100]          # optional, only factions
+group.{groupID}.members: set<EntityID>         # optional
+group.{groupID}.parentFaction: groupID | null  # optional
+group.{groupID}.parentfaction: groupID | null  # optional
+Items
+item.{itemID}.holder: npcID | groupID | playerID | worldID
+item.{itemID}.primaryClaimholder: npcID | groupID | playerID | worldID
+item.{itemID}.originalOwner: npcID | groupID | playerID | worldID
+item.{itemID}.primarycliamholder: npcID | groupID | playerID | worldID  # optional
+item.{itemID}.originalowner: npcID | groupID | playerID | worldID      # optional
+Locations
+location.{locationID}.health: int [0-100]     # optional
+location.{locationID}.prosperity: int [0-100] # optional
+location.{locationID}.type: {village, city, outpost, ruin, wilderness}
+NPCs
+npc.{npcID}.faction: groupID | null           # optional
+npc.{npcID}.originworld: worldID | null
+Gateways
+gateway.{gatewayID}.status: {closed, opened}
+Events
+Event:
+    eventID: string
+    requiresSequences: list<string> | null
+    startsSequences: list<string> | null
+    endsSequences: list<string> | null
+    conditions: list<Condition>
+    mutates: list<Mutation>
+    maxTriggers: int | null   # -1 = unlimited
+
+Condition:
+    variable: string
+    operator: one of {<, <=, =, >=, >}  # numeric comparisons
+    value: int | string       # attempt typecast if string represents int
+
+Mutation:
+    variable: string
+    delta: int | null         # for numeric changes
+    value: int | string | null  # for state switches or assignments
+
+Special runtime event eventID="runtime_state" initializes variables before graph analysis; not treated as a real event in DFS.
+
+Branching Variables
+
+Variables that affect event branching:
+
+knowledge, health, morale, prosperity, reputation
+
+faction group influence
+
+gateway status
+
+actor encounterstatus
+
+target visibility (origin_world targets only)
+
+group membership (faction or origin_world only)
+
+Non-Branching Variables
+
+Variables ignored in state comparison:
+
+culture membership
+
+npc.cultures
+
+descriptive metadata
+
+Any variable affecting triggers, transitions, or branching decisions must be classified as a branching variable.
+
+State Normalization
+
+Scalar values are normalized by clamping:
+
+normalized(x) = clamp(x, 0, 100)
+
+Prevents insignificant numeric variation from producing duplicate world states.
+
+Non-scalar values use canonical comparison (sets, strings, enums).
+
+World State Equality
+
+Two world states S1 and S2 are equal if:
+
+Event order is ignored.
+
+All branching variables match after normalization.
+
+Scalar values use clamped numeric comparison.
+
+Non-scalar values (sets, enums) are compared canonically.
+
+This equality rule allows the tool to collapse equivalent states during analysis.

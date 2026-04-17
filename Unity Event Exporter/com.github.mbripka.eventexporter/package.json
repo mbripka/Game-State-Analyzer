@@ -1,0 +1,12 @@
+{
+    "name": "com.github.mbripka.eventexporter",
+    "version": "0.1.0",
+    "displayName": "Event Exporter",
+    "description": "A Unity package for exporting events to a file.",
+    "unity": "2021.3",
+    "author": {
+        "name": "Mitchell Ripka",
+        "email": "mbr4364@rit.edu",
+        "url": "https://github.com/mbripka"
+    }
+}

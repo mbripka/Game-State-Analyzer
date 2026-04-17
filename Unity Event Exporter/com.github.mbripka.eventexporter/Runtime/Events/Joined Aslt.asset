@@ -1,0 +1,50 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf796c0283b644f558c738194539312a, type: 3}
+  m_Name: Joined Aslt
+  m_EditorClassIdentifier: Assembly-CSharp::SystemEvent
+  eventID: joined_village_assault
+  eventName: Joined Village Assault
+  maxTriggers: 1
+  requiresSequences: []
+  startsSequences:
+  - fact_a_quests
+  endsSequences: []
+  conditions:
+  - scope: actor.raidersCapt
+    name: encounterStatus
+    comparisonOperator: 2
+    valueType: 1
+    intValue: 0
+    stateValue: seeking
+  mutates:
+  - scope: player
+    name: Reputation
+    mutationType: 0
+    delta: 5
+    state: 
+  - scope: group.factionA
+    name: Influence
+    mutationType: 0
+    delta: 10
+    state: 
+  - scope: group.factionB
+    name: Influence
+    mutationType: 0
+    delta: -10
+    state: 
+  - scope: group.factARaiders
+    name: Morale
+    mutationType: 0
+    delta: 10
+    state: 
+  tags: []

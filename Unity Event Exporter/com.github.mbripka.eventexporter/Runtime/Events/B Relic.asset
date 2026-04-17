@@ -1,0 +1,39 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf796c0283b644f558c738194539312a, type: 3}
+  m_Name: B Relic
+  m_EditorClassIdentifier: Assembly-CSharp::SystemEvent
+  eventID: faction_b_relic
+  eventName: Player Finds The Relic
+  maxTriggers: 1
+  requiresSequences: []
+  startsSequences: []
+  endsSequences: []
+  conditions:
+  - scope: player
+    name: Knowledge
+    comparisonOperator: 3
+    valueType: 0
+    intValue: 60
+    stateValue: 
+  mutates:
+  - scope: player
+    name: Knowledge
+    mutationType: 0
+    delta: 15
+    state: 
+  - scope: target.factBRelic
+    name: eyeSpy
+    mutationType: 1
+    delta: 0
+    state: found
+  tags: []

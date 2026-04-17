@@ -1,0 +1,957 @@
+{
+  "events": [
+    {
+      "eventID": "runtime_state",
+      "eventName": "Runtime Event State Initializer",
+      "maxTriggers": 1,
+      "requiresSequences": [],
+      "startsSequences": [],
+      "endsSequences": [],
+      "conditions": [],
+      "mutates": [
+        {
+          "variable": "group.factiona.type",
+          "delta": 0,
+          "value": "faction"
+        },
+        {
+          "variable": "group.factiona.influence",
+          "delta": 25,
+          "value": ""
+        },
+        {
+          "variable": "group.factionb.type",
+          "delta": 0,
+          "value": "faction"
+        },
+        {
+          "variable": "group.factionb.influence",
+          "delta": 10,
+          "value": ""
+        },
+        {
+          "variable": "player.reputation",
+          "delta": 0,
+          "value": ""
+        },
+        {
+          "variable": "player.knowledge",
+          "delta": 5,
+          "value": ""
+        },
+        {
+          "variable": "location.villagea.type",
+          "delta": 0,
+          "value": "rural"
+        },
+        {
+          "variable": "location.villagea.prosperity",
+          "delta": 70,
+          "value": ""
+        },
+        {
+          "variable": "location.villagea.health",
+          "delta": 100,
+          "value": ""
+        },
+        {
+          "variable": "location.villagea.morale",
+          "delta": 100,
+          "value": ""
+        },
+        {
+          "variable": "location.factbhidloc.type",
+          "delta": 0,
+          "value": "urban"
+        },
+        {
+          "variable": "target.factbhidloc.eyespy",
+          "delta": 0,
+          "value": "not_found"
+        },
+        {
+          "variable": "group.factaraiders.type",
+          "delta": 0,
+          "value": "temporary"
+        },
+        {
+          "variable": "group.factaraiders.parentfaction",
+          "delta": 0,
+          "value": "factiona"
+        },
+        {
+          "variable": "group.factaraiders.health",
+          "delta": 100,
+          "value": ""
+        },
+        {
+          "variable": "group.factaraiders.morale",
+          "delta": 70,
+          "value": ""
+        },
+        {
+          "variable": "target.factaraiders.visibility",
+          "delta": 0,
+          "value": "hidden"
+        },
+        {
+          "variable": "target.factaraiders.eyespy",
+          "delta": 0,
+          "value": "not_found"
+        },
+        {
+          "variable": "group.ogworld.type",
+          "delta": 0,
+          "value": "origin_world"
+        },
+        {
+          "variable": "npc.raiderscapt.originworld",
+          "delta": 0,
+          "value": "ogworld"
+        },
+        {
+          "variable": "npc.raiderscapt.faction",
+          "delta": 0,
+          "value": "factiona"
+        },
+        {
+          "variable": "actor.raiderscapt.encounterstatus",
+          "delta": 0,
+          "value": "seeking"
+        },
+        {
+          "variable": "actor.factaraiders.encounterstatus",
+          "delta": 0,
+          "value": "idling"
+        },
+        {
+          "variable": "gateway.newworldgates.status",
+          "delta": 0,
+          "value": "closed"
+        },
+        {
+          "variable": "item.factionbrelic.holder",
+          "delta": 0,
+          "value": "factionb"
+        },
+        {
+          "variable": "item.factbrelic.originalowner",
+          "delta": 0,
+          "value": "factionb"
+        },
+        {
+          "variable": "item.factbrelic.primaryclaimholder",
+          "delta": 0,
+          "value": "factionb"
+        },
+        {
+          "variable": "target.factbrelic.eyespy",
+          "delta": 0,
+          "value": "not_found"
+        },
+        {
+          "variable": "target.factbrelic.visibility",
+          "delta": 0,
+          "value": "revealed"
+        },
+        {
+          "variable": "item.factaplans.originalowner",
+          "delta": 0,
+          "value": "factiona"
+        },
+        {
+          "variable": "item.factaplans.primaryclaimholder",
+          "delta": 0,
+          "value": "factiona"
+        },
+        {
+          "variable": "item.factionaplans.holder",
+          "delta": 0,
+          "value": "factiona"
+        },
+        {
+          "variable": "target.factaplans.eyespy",
+          "delta": 0,
+          "value": "not_found"
+        },
+        {
+          "variable": "target.factaplans.visibility",
+          "delta": 0,
+          "value": "hidden"
+        },
+        {
+          "variable": "group.worldcnpcs.type",
+          "delta": 0,
+          "value": "origin_world"
+        },
+        {
+          "variable": "target.worldcnpcs.visibility",
+          "delta": 0,
+          "value": "hidden"
+        },
+        {
+          "variable": "group.worlddnpcs.type",
+          "delta": 0,
+          "value": "origin_world"
+        },
+        {
+          "variable": "target.worlddnpcs.visibility",
+          "delta": 0,
+          "value": "hidden"
+        },
+        {
+          "variable": "group.worldenpcs.type",
+          "delta": 0,
+          "value": "origin_world"
+        },
+        {
+          "variable": "target.worldenpcs.visibility",
+          "delta": 0,
+          "value": "hidden"
+        },
+        {
+          "variable": "group.worldfnpcs.type",
+          "delta": 0,
+          "value": "origin_world"
+        },
+        {
+          "variable": "target.worldfnpcs.visibility",
+          "delta": 0,
+          "value": "hidden"
+        }
+      ]
+    },
+    {
+      "eventID": "faction_a_plans_discovered",
+      "eventName": "Discovers Faction A Raiders Plans",
+      "maxTriggers": 1,
+      "requiresSequences": [],
+      "startsSequences": [],
+      "endsSequences": [],
+      "conditions": [
+        {
+          "variable": "target.factionplans.eyespy",
+          "operator": "=",
+          "value": "not_found",
+          "type": "state"
+        }
+      ],
+      "mutates": [
+        {
+          "variable": "player.knowledge",
+          "delta": 5,
+          "value": ""
+        },
+        {
+          "variable": "target.factaplans.eyespy",
+          "delta": 0,
+          "value": "found"
+        },
+        {
+          "variable": "item.factaplans.holder",
+          "delta": 0,
+          "value": "player"
+        }
+      ]
+    },
+    {
+      "eventID": "faction_a_invite",
+      "eventName": "Invited to Faction A Meeting Invite",
+      "maxTriggers": 1,
+      "requiresSequences": [
+        "fact_a_quests"
+      ],
+      "startsSequences": [],
+      "endsSequences": [],
+      "conditions": [],
+      "mutates": [
+        {
+          "variable": "player.reputation",
+          "delta": 5,
+          "value": ""
+        },
+        {
+          "variable": "group.factiona.influence",
+          "delta": 5,
+          "value": ""
+        },
+        {
+          "variable": "group.factionb.influence",
+          "delta": -5,
+          "value": ""
+        }
+      ]
+    },
+    {
+      "eventID": "faction_a_captures_village",
+      "eventName": "Faction A Raiders Capture Village",
+      "maxTriggers": 1,
+      "requiresSequences": [
+        "village_assault"
+      ],
+      "startsSequences": [],
+      "endsSequences": [],
+      "conditions": [
+        {
+          "variable": "location.villagea.morale",
+          "operator": "<=",
+          "value": 20,
+          "type": "int"
+        },
+        {
+          "variable": "actor.factaraiders.encounterstatus",
+          "operator": "=",
+          "value": "combat",
+          "type": "state"
+        }
+      ],
+      "mutates": [
+        {
+          "variable": "location.villagea.prosperity",
+          "delta": -40,
+          "value": ""
+        },
+        {
+          "variable": "group.factiona.influence",
+          "delta": 10,
+          "value": ""
+        },
+        {
+          "variable": "actor.factaraiders.encounterstatus",
+          "delta": 0,
+          "value": "victory"
+        }
+      ]
+    },
+    {
+      "eventID": "faction_a_raiders_defeated",
+      "eventName": "Faction A Raiders Defeated",
+      "maxTriggers": 1,
+      "requiresSequences": [
+        "village_assault"
+      ],
+      "startsSequences": [],
+      "endsSequences": [
+        "village_assault"
+      ],
+      "conditions": [
+        {
+          "variable": "group.factaraiders.morale",
+          "operator": "<",
+          "value": 50,
+          "type": "int"
+        },
+        {
+          "variable": "actor.factaraiders.encounterstatus",
+          "operator": "=",
+          "value": "combat",
+          "type": "state"
+        }
+      ],
+      "mutates": [
+        {
+          "variable": "location.villagea.prosperity",
+          "delta": 5,
+          "value": ""
+        },
+        {
+          "variable": "group.factiona.influence",
+          "delta": -10,
+          "value": ""
+        },
+        {
+          "variable": "group.factionb.influence",
+          "delta": 10,
+          "value": ""
+        },
+        {
+          "variable": "player.reputation",
+          "delta": 15,
+          "value": ""
+        },
+        {
+          "variable": "actor.factaraiders.encounterstatus",
+          "delta": 0,
+          "value": "defeat"
+        },
+        {
+          "variable": "location.villagea.prosperity",
+          "delta": -10,
+          "value": ""
+        }
+      ]
+    },
+    {
+      "eventID": "faction_b_invite",
+      "eventName": "Invited to Faction B Meeting Invite",
+      "maxTriggers": 1,
+      "requiresSequences": [],
+      "startsSequences": [
+        "fact_b_quests"
+      ],
+      "endsSequences": [],
+      "conditions": [
+        {
+          "variable": "player.reputation",
+          "operator": ">=",
+          "value": 20,
+          "type": "int"
+        }
+      ],
+      "mutates": [
+        {
+          "variable": "player.reputation",
+          "delta": 20,
+          "value": ""
+        },
+        {
+          "variable": "group.factiona.influence",
+          "delta": -10,
+          "value": ""
+        },
+        {
+          "variable": "group.factionb.influence",
+          "delta": 10,
+          "value": ""
+        }
+      ]
+    },
+    {
+      "eventID": "faction_b_secret_revealed",
+      "eventName": "Faction B Secret Revealed",
+      "maxTriggers": 1,
+      "requiresSequences": [
+        "fact_b_quests"
+      ],
+      "startsSequences": [],
+      "endsSequences": [
+        "fact_b_quests"
+      ],
+      "conditions": [
+        {
+          "variable": "player.reputation",
+          "operator": ">=",
+          "value": 40,
+          "type": "int"
+        }
+      ],
+      "mutates": [
+        {
+          "variable": "player.reputation",
+          "delta": 5,
+          "value": ""
+        },
+        {
+          "variable": "group.factiona.influence",
+          "delta": 5,
+          "value": ""
+        },
+        {
+          "variable": "group.factionb.influence",
+          "delta": -5,
+          "value": ""
+        },
+        {
+          "variable": "player.knowledge",
+          "delta": 10,
+          "value": ""
+        },
+        {
+          "variable": "target.factbhidloc.eyespy",
+          "delta": 0,
+          "value": "found"
+        }
+      ]
+    },
+    {
+      "eventID": "world_gate_c",
+      "eventName": "Faction C World Gate",
+      "maxTriggers": 1,
+      "requiresSequences": [
+        "stolen_relic"
+      ],
+      "startsSequences": [],
+      "endsSequences": [],
+      "conditions": [
+        {
+          "variable": "gateway.newworldgates.status",
+          "operator": "=",
+          "value": "opened",
+          "type": "state"
+        }
+      ],
+      "mutates": [
+        {
+          "variable": "target.worldcnpcs.visibility",
+          "delta": 0,
+          "value": "revealed"
+        }
+      ]
+    },
+    {
+      "eventID": "world_gate_d",
+      "eventName": "Faction D World Gate",
+      "maxTriggers": 1,
+      "requiresSequences": [
+        "stolen_relic"
+      ],
+      "startsSequences": [],
+      "endsSequences": [],
+      "conditions": [
+        {
+          "variable": "gateway.newworldgates.status",
+          "operator": "=",
+          "value": "opened",
+          "type": "state"
+        }
+      ],
+      "mutates": [
+        {
+          "variable": "target.worlddnpcs.visibility",
+          "delta": 0,
+          "value": "revealed"
+        }
+      ]
+    },
+    {
+      "eventID": "world_gate_e",
+      "eventName": "Faction E World Gate",
+      "maxTriggers": 1,
+      "requiresSequences": [
+        "stolen_relic"
+      ],
+      "startsSequences": [],
+      "endsSequences": [],
+      "conditions": [
+        {
+          "variable": "gateway.newworldgates.status",
+          "operator": "=",
+          "value": "opened",
+          "type": "state"
+        }
+      ],
+      "mutates": [
+        {
+          "variable": "target.worldenpcs.visibility",
+          "delta": 0,
+          "value": "revealed"
+        }
+      ]
+    },
+    {
+      "eventID": "world_gate_f",
+      "eventName": "Faction F World Gate",
+      "maxTriggers": 1,
+      "requiresSequences": [
+        "stolen_relic"
+      ],
+      "startsSequences": [],
+      "endsSequences": [],
+      "conditions": [
+        {
+          "variable": "gateway.newworldgates.status",
+          "operator": "=",
+          "value": "opened",
+          "type": "state"
+        }
+      ],
+      "mutates": [
+        {
+          "variable": "target.worldfnpcs.visibility",
+          "delta": 0,
+          "value": "revealed"
+        }
+      ]
+    },
+    {
+      "eventID": "joined_village_assault",
+      "eventName": "Joined Village Assault",
+      "maxTriggers": 1,
+      "requiresSequences": [],
+      "startsSequences": [
+        "fact_a_quests"
+      ],
+      "endsSequences": [],
+      "conditions": [
+        {
+          "variable": "actor.raiderscapt.encounterstatus",
+          "operator": "=",
+          "value": "seeking",
+          "type": "state"
+        }
+      ],
+      "mutates": [
+        {
+          "variable": "player.reputation",
+          "delta": 5,
+          "value": ""
+        },
+        {
+          "variable": "group.factiona.influence",
+          "delta": 10,
+          "value": ""
+        },
+        {
+          "variable": "group.factionb.influence",
+          "delta": -10,
+          "value": ""
+        },
+        {
+          "variable": "group.factaraiders.morale",
+          "delta": 10,
+          "value": ""
+        }
+      ]
+    },
+    {
+      "eventID": "new_world_gates",
+      "eventName": "New World Gates Open",
+      "maxTriggers": 1,
+      "requiresSequences": [
+        "stolen_relic"
+      ],
+      "startsSequences": [],
+      "endsSequences": [],
+      "conditions": [
+        {
+          "variable": "item.factbrelic.holder",
+          "operator": "=",
+          "value": "player",
+          "type": "state"
+        }
+      ],
+      "mutates": [
+        {
+          "variable": "gateway.newworldgates.status",
+          "delta": 0,
+          "value": "opened"
+        }
+      ]
+    },
+    {
+      "eventID": "faction_b_relic",
+      "eventName": "Player Finds The Relic",
+      "maxTriggers": 1,
+      "requiresSequences": [],
+      "startsSequences": [],
+      "endsSequences": [],
+      "conditions": [
+        {
+          "variable": "player.knowledge",
+          "operator": ">=",
+          "value": 60,
+          "type": "int"
+        }
+      ],
+      "mutates": [
+        {
+          "variable": "player.knowledge",
+          "delta": 15,
+          "value": ""
+        },
+        {
+          "variable": "target.factbrelic.eyespy",
+          "delta": 0,
+          "value": "found"
+        }
+      ]
+    },
+    {
+      "eventID": "player_steals_relic",
+      "eventName": "Player Steals the Relic",
+      "maxTriggers": 1,
+      "requiresSequences": [],
+      "startsSequences": [
+        "stolen_relic"
+      ],
+      "endsSequences": [],
+      "conditions": [
+        {
+          "variable": "target.factbrelic.eyespy",
+          "operator": "=",
+          "value": "found",
+          "type": "state"
+        }
+      ],
+      "mutates": [
+        {
+          "variable": "item.factbrelic.holder",
+          "delta": 0,
+          "value": "player"
+        },
+        {
+          "variable": "player.reputation",
+          "delta": 10,
+          "value": ""
+        },
+        {
+          "variable": "group.factiona.influence",
+          "delta": 5,
+          "value": ""
+        },
+        {
+          "variable": "group.factionb.influence",
+          "delta": -5,
+          "value": ""
+        }
+      ]
+    },
+    {
+      "eventID": "sabotage_faction_a",
+      "eventName": "Sabotage Faction A",
+      "maxTriggers": 1,
+      "requiresSequences": [],
+      "startsSequences": [],
+      "endsSequences": [],
+      "conditions": [
+        {
+          "variable": "player.reputation",
+          "operator": "<",
+          "value": 50,
+          "type": "int"
+        },
+        {
+          "variable": "item.factaplans.holder",
+          "operator": "=",
+          "value": "player",
+          "type": "state"
+        }
+      ],
+      "mutates": [
+        {
+          "variable": "group.factaraiders.health",
+          "delta": -25,
+          "value": ""
+        },
+        {
+          "variable": "group.factaraiders.morale",
+          "delta": -20,
+          "value": ""
+        }
+      ]
+    },
+    {
+      "eventID": "faction_a_smuggles_spies",
+      "eventName": "Smuggles Faction A Spies into Faction B",
+      "maxTriggers": 1,
+      "requiresSequences": [
+        "fact_a_quests"
+      ],
+      "startsSequences": [],
+      "endsSequences": [
+        "fact_a_quests"
+      ],
+      "conditions": [
+        {
+          "variable": "target.factbhidloc.eyespy",
+          "operator": "=",
+          "value": "found",
+          "type": "state"
+        }
+      ],
+      "mutates": [
+        {
+          "variable": "player.knowledge",
+          "delta": 10,
+          "value": ""
+        },
+        {
+          "variable": "group.factionb.influence",
+          "delta": -5,
+          "value": ""
+        },
+        {
+          "variable": "group.factiona.influence",
+          "delta": 5,
+          "value": ""
+        }
+      ]
+    },
+    {
+      "eventID": "faction_a_targets_village",
+      "eventName": "Faction A Sends Raiding Party to Village A",
+      "maxTriggers": 1,
+      "requiresSequences": [],
+      "startsSequences": [],
+      "endsSequences": [],
+      "conditions": [
+        {
+          "variable": "location.villagea.prosperity",
+          "operator": ">=",
+          "value": 70,
+          "type": "int"
+        }
+      ],
+      "mutates": [
+        {
+          "variable": "target.factaplans.visibility",
+          "delta": 0,
+          "value": "revealed"
+        },
+        {
+          "variable": "target.factaraiders.visibility",
+          "delta": 0,
+          "value": "revealed"
+        }
+      ]
+    },
+    {
+      "eventID": "faction_a_raids_village",
+      "eventName": "Faction A Raids Village A",
+      "maxTriggers": 1,
+      "requiresSequences": [],
+      "startsSequences": [
+        "village_assault"
+      ],
+      "endsSequences": [],
+      "conditions": [
+        {
+          "variable": "target.factaraiders.eyespy",
+          "operator": "=",
+          "value": "found",
+          "type": "state"
+        }
+      ],
+      "mutates": [
+        {
+          "variable": "actor.factaraiders.encounterstatus",
+          "delta": 0,
+          "value": "combat"
+        }
+      ]
+    },
+    {
+      "eventID": "player_finds_raiders",
+      "eventName": "Player Encounters Raiders",
+      "maxTriggers": 1,
+      "requiresSequences": [],
+      "startsSequences": [],
+      "endsSequences": [],
+      "conditions": [
+        {
+          "variable": "target.factaraiders.visibility",
+          "operator": "=",
+          "value": "revealed",
+          "type": "state"
+        }
+      ],
+      "mutates": [
+        {
+          "variable": "target.factaraiders.eyespy",
+          "delta": 0,
+          "value": "found"
+        },
+        {
+          "variable": "actor.raiderscapt.encounterstatus",
+          "delta": 0,
+          "value": "idling"
+        }
+      ]
+    },
+    {
+      "eventID": "raider_morale_damage",
+      "eventName": "Faction A Raiders Morale Damage",
+      "maxTriggers": 5,
+      "requiresSequences": [
+        "village_assault"
+      ],
+      "startsSequences": [],
+      "endsSequences": [],
+      "conditions": [
+        {
+          "variable": "actor.factaraiders.encounterstatus",
+          "operator": "=",
+          "value": "combat",
+          "type": "state"
+        }
+      ],
+      "mutates": [
+        {
+          "variable": "group.factaraiders.morale",
+          "delta": -10,
+          "value": ""
+        }
+      ]
+    },
+    {
+      "eventID": "village_morale_damage",
+      "eventName": "Village A Morale Damage",
+      "maxTriggers": 3,
+      "requiresSequences": [
+        "village_assault"
+      ],
+      "startsSequences": [],
+      "endsSequences": [],
+      "conditions": [
+        {
+          "variable": "actor.factaraiders.encounterstatus",
+          "operator": "=",
+          "value": "combat",
+          "type": "state"
+        }
+      ],
+      "mutates": [
+        {
+          "variable": "location.villagea.morale",
+          "delta": -5,
+          "value": ""
+        }
+      ]
+    },
+    {
+      "eventID": "add_player_knowledge",
+      "eventName": "Player Knowledge Increases",
+      "maxTriggers": 5,
+      "requiresSequences": [],
+      "startsSequences": [],
+      "endsSequences": [],
+      "conditions": [],
+      "mutates": [
+        {
+          "variable": "player.knowledge",
+          "delta": 10,
+          "value": ""
+        }
+      ]
+    },
+    {
+      "eventID": "ending",
+      "eventName": "Roll the Credits",
+      "maxTriggers": 1,
+      "requiresSequences": [
+        "stolen_relic"
+      ],
+      "startsSequences": [],
+      "endsSequences": [
+        "stolen_relic"
+      ],
+      "conditions": [
+        {
+          "variable": "target.worldcnpcs.visibility",
+          "operator": "=",
+          "value": "revealed",
+          "type": "state"
+        },
+        {
+          "variable": "target.worlddnpcs.visibility",
+          "operator": "=",
+          "value": "revealed",
+          "type": "state"
+        },
+        {
+          "variable": "target.worldenpcs.visibility",
+          "operator": "=",
+          "value": "revealed",
+          "type": "state"
+        },
+        {
+          "variable": "target.worldfnpcs.visibility",
+          "operator": "=",
+          "value": "revealed",
+          "type": "state"
+        }
+      ],
+      "mutates": []
+    }
+  ]
+}
