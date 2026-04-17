@@ -47,7 +47,7 @@ Typical use cases include:
 - reviewing reachability and transition depth
 
 See the project README for more detail:
-[Analysis Tool README]
+[Analysis Tool README](https://github.com/mbripka/Game-State-Analyzer/blob/main/Analysis%20Tool/README.md)
 
 ### Unity Event Exporter
 
@@ -67,7 +67,7 @@ Typical use cases include:
 - bridging Unity authoring workflows with external tooling
 
 See the project README for more detail:
-[Unity Event Exporter README]
+[Unity Event Exporter README](https://github.com/mbripka/Game-State-Analyzer/blob/adjusting-readme-1/Unity%20Event%20Exporter/README.md)
 
 ## How The Pieces Fit Together
 
@@ -103,9 +103,9 @@ flowchart LR
 ## Documentation
 
 - [Analysis Tool README](https://github.com/mbripka/Game-State-Analyzer/blob/main/Analysis%20Tool/README.md)
-- [Unity Event Exporter README]
-- [Contributing Guide]
-- [License]
+- [Unity Event Exporter README](https://github.com/mbripka/Game-State-Analyzer/blob/adjusting-readme-1/Unity%20Event%20Exporter/README.md)
+- [Contributing Guide](https://github.com/mbripka/Game-State-Analyzer/blob/adjusting-readme-1/CONTRIBUTING.md)
+- [License](https://github.com/mbripka/Game-State-Analyzer/blob/adjusting-readme-1/LICENSE.md)
 
 ## Status
 
