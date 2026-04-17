@@ -102,7 +102,7 @@ flowchart LR
 
 ## Documentation
 
-- [Analysis Tool README]
+- [Analysis Tool README] (<https://github.com/mbripka/Game-State-Analyzer/blob/main/Analysis%20Tool/README.md>)
 - [Unity Event Exporter README]
 - [Contributing Guide]
 - [License]
