@@ -1,0 +1,23 @@
+# Unity
+Library/
+Temp/
+Build/
+Builds/
+Logs/
+UserSettings/
+*.csproj
+*.unityproj
+*.sln
+*.user
+*.pidb
+*.booproj
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+env/
+
+# OS
+.DS_Store
+Thumbs.db
