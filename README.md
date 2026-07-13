@@ -105,7 +105,7 @@ flowchart LR
 - [Analysis Tool README](https://github.com/mbripka/Game-State-Analyzer/blob/main/Analysis%20Tool/README.md)
 - [Unity Event Exporter README](https://github.com/mbripka/Game-State-Analyzer/blob/adjusting-readme-1/Unity%20Event%20Exporter/README.md)
 - [Contributing Guide](https://github.com/mbripka/Game-State-Analyzer/blob/adjusting-readme-1/CONTRIBUTING.md)
-- [License](https://github.com/mbripka/Game-State-Analyzer/blob/adjusting-readme-1/LICENSE.md)
+- [Software License and Terms of Use](https://github.com/mbripka/Game-State-Analyzer/blob/adjusting-readme-1/LICENSE.md)
 
 ## Status
 
