@@ -1,4 +1,4 @@
-# Game State Analyzer
+# Narrative Game State Analyzer
 
 The Game State Analyzer is a two-part toolkit for exporting and evaluating event-driven game state systems.
 
